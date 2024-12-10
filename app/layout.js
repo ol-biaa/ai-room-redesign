@@ -1,4 +1,6 @@
-import { ClerkProvider, RedirectToSignIn, RedirectToHome } from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
+import { useUser } from "@clerk/nextjs";
+
 import "./globals.css";
 import { Outfit } from "next/font/google";
 
