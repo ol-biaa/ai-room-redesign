@@ -3,8 +3,8 @@
 
 // const isProtectedRoute = createRouteMatcher(['/dashboard(.*)'])
 
-// export default clerkMiddleware(async (auth, req) => {
-//   if (isProtectedRoute(req)) await auth.protect()
+// export default clerkMiddleware( (auth, req) => {
+//   if (isProtectedRoute(req)) auth.protect()
 // })
 
 
@@ -16,9 +16,9 @@
 //     '/(api|trpc)(.*)',
 //   ],
 
-//   // matcher: [
-//   //   '/((?!_next|sign-up/sso-callback|sign-in|sign-up|api|favicon.ico).*)',
-//   // ],
+// //   // matcher: [
+// //   //   '/((?!_next|sign-up/sso-callback|sign-in|sign-up|api|favicon.ico).*)',
+// //   // ],
 // }
 
 
