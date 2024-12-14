@@ -1,5 +1,6 @@
 "use client"
 
+import axios from 'axios';
 import { useUser } from '@clerk/nextjs';
 import React, { useEffect } from 'react'
 
@@ -16,12 +17,17 @@ function Provider({children}) {
     /**
      * Verify user
      */
-    const VerifyUser=()=>{
+    const VerifyUser=async()=>{
+      const dataResult = await axios.post('/api/verify-user', {
+        user:user
+      });
 
+      console.log(dataResult.data)
     }
   return (
     <div>
-      {children}
+      {/* keep as a client */}
+      {children} 
     </div>
   )
 }
