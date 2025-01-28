@@ -1,7 +1,7 @@
 import { db } from "@/config/db";
 import { Users } from "@/config/schema"; // Import your Users model
 import { eq } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import axios from 'axios';
 
 
@@ -16,7 +16,7 @@ export async function POST(req) {
 
     //If not will add new user to DB
 
-    if(userInfo?.length==0){
+    if(!userInfo?.length==0){
         const SaveResult= await db.insert(Users)
         .values({
             name:user?.fullName,
@@ -28,10 +28,11 @@ export async function POST(req) {
     }
 
     return NextResponse.json({'result':userInfo[0]})
-// 
+// if not will add new user to db
   }  catch (e) {
      return NextResponse.json({ error : e });
 
   }
 
 }
+
