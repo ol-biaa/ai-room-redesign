@@ -1,7 +1,9 @@
+"use client"
 import { Button } from "@/components/ui/button";
-import React from "react";
-import { useUser } from "react";
 import EmptyState from "./EmptyState";
+import { useUser } from "@clerk/nextjs"; // Replace 'react' with your auth provider
+import React, { useState } from "react"; // Add useState import
+import Link from "next/link";
 
 function Listing() {
   const { user } = useUser();
