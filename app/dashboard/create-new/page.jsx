@@ -5,6 +5,7 @@ import RoomType from './_components/RoomType'
 import DesignType from './_components/DesignType'
 import AdditionalReq from './_components/AdditionalReq'
 import { Button } from '@/components/ui/button'
+import axios from 'axios'
 
 function CreateNew() {
   const [formData, setFormData]=useState([]);
@@ -16,6 +17,16 @@ function CreateNew() {
     console.log(formData)
 
   }
+
+  const GenerateAiImage=async ()=>{
+    const result = await axios.post('/api/redesign-room', formData);
+    console.log(result.data);
+  }
+
+    const SaveRawImageToFirebase =()=>{
+      const fileName=Date.now()+"_raw.png";
+    }
+
   return (
     <div>
      <h2 className='font-bold text-4xl text-primary text-center'>Experience the Magic of AI Remodeling</h2>
@@ -34,7 +45,7 @@ function CreateNew() {
           {/* addition requiremnt textarea (optional) */}
           <AdditionalReq additionalRequirementInput={(value)=>onHandleInputChange(value, 'additionalReq')}/>
           {/* button to generate image */}
-          <Button className='w-full mt-5'>Generate</Button>
+          <Button className='w-full mt-5'onClick={GenerateAiImage} >Generate</Button>
           <p className='text-sm text-gray-400 mb-52'>NOTE: 1 Credit will be used to redesign your room</p>
         </div>
      </div>
